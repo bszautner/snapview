@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SnapView</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 900px; margin: 0 auto; padding: 20px; }
+        nav { background: #333; padding: 10px; margin-bottom: 20px; border-radius: 5px; }
+        nav a { color: white; text-decoration: none; margin-right: 15px; }
+        nav a:hover { text-decoration: underline; }
+        .messages { background: #d4edda; padding: 10px; border-radius: 5px; margin-bottom: 15px; }
+        .btn { padding: 8px 16px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; text-decoration: none; }
+        .btn-danger { background: #dc3545; }
+        table { width: 100%; border-collapse: collapse; }
+        th, td { padding: 10px; border: 1px solid #ddd; text-align: left; }
+        th { background: #f4f4f4; }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/">Főoldal</a>
+        {% if user.is_authenticated %}
+            <a href="/upload/">Feltöltés</a>
+            <a href="/logout/">Kilépés ({{ user.username }})</a>
+        {% else %}
+            <a href="/login/">Bejelentkezés</a>
+            <a href="/register/">Regisztráció</a>
+        {% endif %}
+    </nav>
+    {% if messages %}
+        <div class="messages">
+            {% for message in messages %}{{ message }}{% endfor %}
+        </div>
+    {% endif %}
+    {% block content %}{% endblock %}
+</body>
+</html>

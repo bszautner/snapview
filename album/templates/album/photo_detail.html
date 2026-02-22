@@ -1,0 +1,8 @@
+{% extends 'album/base.html' %}
+{% block content %}
+<h1>{{ photo.name }}</h1>
+<p>Feltöltve: {{ photo.uploaded_at|date:"Y-m-d H:i" }} | Feltöltő: {{ photo.uploaded_by.username }}</p>
+<img src="{{ photo.image.url }}" style="max-width: 100%; border-radius: 8px;">
+<br><br>
+<a href="/" class="btn">Vissza a listához</a>
+{% endblock %}

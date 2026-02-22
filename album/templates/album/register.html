@@ -1,0 +1,10 @@
+{% extends 'album/base.html' %}
+{% block content %}
+<h1>Regisztráció</h1>
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn">Regisztráció</button>
+</form>
+<p>Már van fiókod? <a href="/login/">Bejelentkezés</a></p>
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends 'album/base.html' %}
+{% block content %}
+<h1>Fényképalbum</h1>
+<p>
+    Rendezés:
+    <a href="?sort=name" class="btn">Név szerint</a>
+    <a href="?sort=date" class="btn">Dátum szerint</a>
+</p>
+{% if photos %}
+<table>
+    <tr>
+        <th>Név</th>
+        <th>Feltöltés dátuma</th>
+        <th>Feltöltő</th>
+        {% if user.is_authenticated %}<th>Törlés</th>{% endif %}
+    </tr>
+    {% for photo in photos %}
+    <tr>
+        <td><a href="/photo/{{ photo.pk }}/">{{ photo.name }}</a></td>
+        <td>{{ photo.uploaded_at|date:"Y-m-d H:i" }}</td>
+        <td>{{ photo.uploaded_by.username }}</td>
+        {% if user.is_authenticated %}
+        <td>
+            <form method="post" action="/delete/{{ photo.pk }}/">
+                {% csrf_token %}
+                <button type="submit" class="btn btn-danger">Törlés</button>
+            </form>
+        </td>
+        {% endif %}
+    </tr>
+    {% endfor %}
+</table>
+{% else %}
+<p>Még nincs feltöltött kép.</p>
+{% endif %}
+{% endblock %}
