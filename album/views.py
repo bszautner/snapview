@@ -27,7 +27,7 @@ def photo_upload(request):
             photo.uploaded_by = request.user
             photo.save()
             messages.success(request, 'Kép sikeresen feltöltve!')
-            return redirect('photo_list')
+            return redirect('home')
     else:
         form = PhotoForm()
     return render(request, 'album/photo_upload.html', {'form': form})
@@ -39,7 +39,7 @@ def photo_delete(request, pk):
         photo.image.delete()
         photo.delete()
         messages.success(request, 'Kép sikeresen törölve!')
-        return redirect('photo_list')
+        return redirect('home')
     return render(request, 'album/photo_confirm_delete.html', {'photo': photo})
 
 def register(request):
@@ -48,7 +48,7 @@ def register(request):
         if form.is_valid():
             user = form.save()
             login(request, user)
-            return redirect('photo_list')
+            return redirect('home')
     else:
         form = UserCreationForm()
     return render(request, 'album/register.html', {'form': form})
@@ -59,11 +59,11 @@ def user_login(request):
         if form.is_valid():
             user = form.get_user()
             login(request, user)
-            return redirect('photo_list')
+            return redirect('home')
     else:
         form = AuthenticationForm()
     return render(request, 'album/login.html', {'form': form})
 
 def user_logout(request):
     logout(request)
-    return redirect('photo_list')
+    return redirect('home')
