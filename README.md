@@ -5,7 +5,7 @@
 
 ## 1. Projekt célkitűzése és funkcionális követelmények
 
-A projekt során egy olyan skálázható webes alkalmazást hoztam létre, amely képes nagy mennyiségű vizuális adat (fénykép) tárolására és rendszerezésére. A fejlesztés során a modern felhasználói élményt (UX) ötvöztem a felhőalapú infrastruktúra (PaaS) biztonságával.
+A projekt során egy olyan skálázható webes alkalmazást hoztam létre, amely képes nagy mennyiségű vizuális adat (fénykép) tárolására és rendszerezésére. A fejlesztés során a modern felhasználói élményt (UX) ötvöztem a felhőalapú infrastruktúra (PaaS) biztonságával.  
 
 **GitHub Repository:** [bszautner/snapview](https://github.com/bszautner/snapview)
 
