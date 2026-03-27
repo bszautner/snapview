@@ -8,7 +8,9 @@ SECRET_KEY = config('SECRET_KEY')
 DEBUG = config('DEBUG', default=False, cast=bool)
 
 ALLOWED_HOSTS = ['*']
-CSRF_TRUSTED_ORIGINS = ['https://snapview-cdg7gvcpgydefpfz.westeurope-01.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = [
+    'https://snapview-snapview.apps.okd.fured.cloud.bme.hu',
+]
 
 INSTALLED_APPS = [
     'django.contrib.admin',
